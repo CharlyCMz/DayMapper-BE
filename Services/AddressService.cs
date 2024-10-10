@@ -50,7 +50,7 @@ namespace DayMapper_BE.Services
             return address; //TODO: check if the entity returns 
         }
 
-        public async Task Delete(Guid id)
+        public async Task<string> Delete(Guid id)
         {
             Address address = DbContext.Addresses.Find(id);
 
@@ -62,6 +62,8 @@ namespace DayMapper_BE.Services
             DbContext.Remove(address);
 
             await DbContext.SaveChangesAsync();
+
+            return $"Address with Id {id} was deleted.";
         }
     }
 
@@ -75,6 +77,6 @@ namespace DayMapper_BE.Services
 
         Task<Address> Update(Guid id, Address payload);
 
-        Task Delete(Guid id);
+        Task<string> Delete(Guid id);
     }
 }

@@ -17,6 +17,11 @@ namespace DayMapper_BE.Models
 
         [Required]
         [MaxLength(20), MinLength(9)]
+        [Column("reference")]
+        public string Suit { get; set; }
+
+        [Required]
+        [MaxLength(20), MinLength(9)]
         [Column("city")]
         public string City { get; set; }
 

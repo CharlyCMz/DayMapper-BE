@@ -11,8 +11,8 @@ namespace DayMapper_BE.Models
 
         [Required]
         [MaxLength(20), MinLength(9)]
-        [Column("document")]
-        public string Document { get; set; }
+        [Column("identification")]
+        public string Identification { get; set; }
 
         [Required]
         [MaxLength(20), MinLength(4)]

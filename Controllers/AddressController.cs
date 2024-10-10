@@ -1,4 +1,5 @@
-﻿using DayMapper_BE.Services;
+﻿using DayMapper_BE.Models;
+using DayMapper_BE.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DayMapper_BE.Controllers
@@ -25,6 +26,27 @@ namespace DayMapper_BE.Controllers
         public async Task<IActionResult> GetOne([FromRoute] Guid id)
         {
             return Ok(await _addressService.GetOne(id));
+        }
+
+        [HttpPost]
+        [Route("")]
+        public async Task<IActionResult> Post([FromBody] Address payload)
+        {
+            return Ok(await _addressService.Save(payload));
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> Put([FromRoute] Guid id, [FromBody] Address payload)
+        {
+            return Ok(await _addressService.Update(id, payload));
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<IActionResult> Delete([FromRoute] Guid id) 
+        {
+            return Ok(await _addressService.Delete(id));
         }
     }
 }
