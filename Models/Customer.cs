@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DayMapper_BE.Models
 {
+    [Table("customers")]
     public class Customer
     {
         [Key]

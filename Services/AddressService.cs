@@ -31,7 +31,7 @@ namespace DayMapper_BE.Services
             DbContext.Add(payload);
             await DbContext.SaveChangesAsync();
 
-            return payload; //TODO: check if the entity returns 
+            return payload;
         }
 
         public async Task<Address> Update(Guid id, Address payload)
@@ -47,7 +47,7 @@ namespace DayMapper_BE.Services
 
             await DbContext.SaveChangesAsync();
 
-            return address; //TODO: check if the entity returns 
+            return address;
         }
 
         public async Task<string> Delete(Guid id)
